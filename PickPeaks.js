@@ -1,8 +1,8 @@
 function pickPeaks(arr){
+  console.log(`initial array ${arr}`);
   const result = {pos:[],peaks:[]}
 
-  for(let i = 1; i < arr.length - 2; i++){
-    //console.log(arr[i] + 1)
+  for(let i = 1; i < arr.length - 1; i++){
     if(
       arr[i] > arr[i - 1]  &&
       arr[i] > arr[i + 1] 
@@ -17,7 +17,6 @@ function pickPeaks(arr){
       const restOfArr = arr.slice(i);
       console.log(restOfArr);
       for (let j = 0; j < restOfArr.length - 1; j++){
-        console.log(restOfArr[j])
         if (restOfArr[j + 1] < restOfArr[j]){
           result.pos.push(i);
           result.peaks.push(arr[i]);
@@ -31,11 +30,6 @@ function pickPeaks(arr){
         }
       }
     }
-    
   }
-  //console.log(result);
   return result
-
 }
-
-//pickPeaks([3,2,3,6,4,1,2,3,2,1,2,2,2,1])
